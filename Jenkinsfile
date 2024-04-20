@@ -3,12 +3,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                script {
-                    // Assurez-vous que Node.js est installé et utilisez la version appropriée
-                    sh 'nvm use 8.17.0'
-                    // Installez les dépendances Node.js
-                    sh 'npm install'
-                }
+                // Installez les dépendances Node.js
+                sh 'npm install'
             }
         }
         stage('Test') {
