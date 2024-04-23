@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    
+    environment {
+        PATH = "$PATH:/usr/bin"
+    }
+    
     stages {
         stage('Build') {
             steps {
@@ -7,6 +12,6 @@ pipeline {
                 sh 'npm install'
             }
         }
-        
+        // Autres étapes de votre pipeline...
     }
 }
