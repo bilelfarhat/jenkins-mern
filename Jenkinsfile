@@ -1,13 +1,15 @@
 pipeline {
     agent any
-    
+
     stages {
         stage('Build') {
             steps {
-                // Installez les dépendances Node.js
-                sh 'usr/bin/npm install'
+                // Install npm
+                sh 'apt-get update && apt-get install -y npm'
+                // Install dependencies
+                sh 'npm install'
             }
         }
-        // Autres étapes de votre pipeline...
+        // Other stages of your pipeline...
     }
 }
