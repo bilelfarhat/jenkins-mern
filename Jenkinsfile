@@ -1,13 +1,18 @@
 pipeline {
     agent any
-
+    
     stages {
-        stage('Build') {
+        stage('Build') { 
             steps {
-                // Installez les dépendances Node.js
-                sh 'npm install'
+                script {
+                    // Nettoyer les anciennes dépendances et vider le cache npm
+                    sh 'rm -rf node_modules/*'
+                    sh 'npm cache clean --force'
+                    
+                    // Installer les dépendances à partir du fichier package.json
+                    sh 'npm install'
+                }
             }
         }
-        // Other stages of your pipeline...
     }
 }
