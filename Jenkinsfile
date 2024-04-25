@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Installez les dépendances Node.js
-                sh 'node --version'
+                sh 'npm install'
             }
         }
         // Other stages of your pipeline...
